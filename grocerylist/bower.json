@@ -1,0 +1,25 @@
+{
+  "name": "grocerylist",
+  "homepage": "https://github.com/valor13111/Web-Projects",
+  "authors": [
+    "Tyler Reed <valor13111@gmail.com>"
+  ],
+  "description": "basic grocery list app",
+  "main": "index.html",
+  "keywords": [
+    "angular",
+    "boostrap"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.5"
+  }
+}
