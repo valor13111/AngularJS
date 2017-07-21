@@ -1,11 +1,13 @@
 var app = angular.module("groceryList", []);
 
-app.controller("groceryController", function ($scope) {
+app.controller("groceryController", function ($scope, $filter) {
     $scope.products = [
         { item: "Milk" },
         { item: "Juice" },
         { item: "Bread" }
     ];
+
+    var sort = true;
 
     // adds an item
     // if the input box is empty, display errorText
@@ -48,12 +50,46 @@ app.controller("groceryController", function ($scope) {
         $scope.products.splice(item, 1);
     }
 
-
+    // add alert classes for errors
     $scope.addClasses = function () {
         $scope.class = "alert alert-danger";
     };
 
+    // remove classes on successfully adding an item
     $scope.removeClasses = function () {
         $scope.class = "";
     };
+
+    // gives a visual for sorting
+    // sets sort boolean to false, so it is sorted first in
+    // sortItems(x, bool) function
+    $scope.downArrowGlyphicon = function () {
+        $scope.sorting = "glyphicon glyphicon-arrow-down";
+        sort = false;
+    };
+
+    // gives a visual for sorting
+    $scope.upArrowGlyphicon = function () {
+        $scope.sorting = "glyphicon glyphicon-arrow-up";
+        sort = true;
+    }
+
+    // sorts items, where x is the object 'item', and bool is letting
+    // the orderBy know whether to reverse sort or not
+    // when sort is equal to false, it sorts it descending and changes glyphicon
+    // when sort is true, it sorts it ascending, and changes glyphicon back
+    $scope.sortItems = function (x, bool) {
+        if (sort == false) {
+            $scope.myOrderBy = x;
+            $scope.reverse = !bool;
+            $scope.upArrowGlyphicon();
+        } else {
+            $scope.myOrderBy = x;
+            $scope.reverse = bool;
+            $scope.downArrowGlyphicon();
+        }
+    };
+
+    // initializes down arrow glyphicon for sorting
+    $scope.downArrowGlyphicon();
 });
