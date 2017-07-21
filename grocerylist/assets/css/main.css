@@ -10,6 +10,7 @@
 
 .list-group-item {
     height: 50px;
+    overflow: hidden;
 }
 
 .form-control-input {
@@ -42,6 +43,6 @@
     color: white;
 }
 
-.error-text-red {
-    color: red;
+ul li:hover {
+    background: #e4eae7;
 }
