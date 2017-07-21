@@ -10,11 +10,13 @@
 </head>
 <body>
 <div ng-app="groceryList" ng-controller="groceryController" class="container small-width">
-    <h3 class="text-center text-primary">Grocery List</h3>
+    <h3 class="text-center text-primary">Grocery List
+        <span ng-click="sortItems('item', true)" ng-class="sorting"></span>
+    </h3>
     <ul class="list-group">
-        <li class="list-group-item text-capitalize lead" ng-repeat="x in products">
+        <li ng-repeat="x in products | orderBy : myOrderBy : reverse" class="list-group-item text-capitalize lead">
             {{x.item}}
-            <button class="btn-sm pull-right btn-danger" ng-click="removeItem($index)">
+            <button ng-click="removeItem($index)" class="btn-sm pull-right btn-danger">
                 <span class="glyphicon glyphicon-remove-sign"></span>
             </button>
         </li>
@@ -22,7 +24,7 @@
 
     <form class="text-center">
         <div class="form-group">
-            <input type="text" class="form-control-input" ng-model="newItem" placeholder="Add shopping items here...">
+            <input ng-model="newItem" type="text" class="form-control-input" placeholder="Add shopping items here...">
             <span class="button btn-blue" ng-click="addItem()">Add</span>
         </div>
     </form>
