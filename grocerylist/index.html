@@ -11,10 +11,10 @@
 <body>
 <div ng-app="groceryList" ng-controller="groceryController" class="container small-width">
     <h3 class="text-center text-primary">Grocery List
-        <span ng-click="sortItems('item', true)" ng-class="sorting"></span>
+        <span ng-click="sortItems('item')" class="glyphicon glyphicon-sort-by-alphabet"></span>
     </h3>
     <ul class="list-group">
-        <li ng-repeat="x in products | orderBy : myOrderBy : reverse" class="list-group-item text-capitalize lead">
+        <li ng-repeat="x in products | orderBy : myOrderBy" class="list-group-item list-group-item-action text-capitalize lead">
             {{x.item}}
             <button ng-click="removeItem($index)" class="btn-sm pull-right btn-danger">
                 <span class="glyphicon glyphicon-remove-sign"></span>
