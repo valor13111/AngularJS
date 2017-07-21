@@ -7,8 +7,6 @@ app.controller("groceryController", function ($scope, $filter) {
         { item: "Bread" }
     ];
 
-    var sort = true;
-
     // adds an item
     // if the input box is empty, display errorText
     // if the indexOf object in input box doesn't match any item
@@ -61,33 +59,13 @@ app.controller("groceryController", function ($scope, $filter) {
     };
 
     // gives a visual for sorting
-    // sets sort boolean to false, so it is sorted first in
-    // sortItems(x, bool) function
     $scope.downArrowGlyphicon = function () {
         $scope.sorting = "glyphicon glyphicon-arrow-down";
-        sort = false;
     };
 
-    // gives a visual for sorting
-    $scope.upArrowGlyphicon = function () {
-        $scope.sorting = "glyphicon glyphicon-arrow-up";
-        sort = true;
-    }
-
-    // sorts items, where x is the object 'item', and bool is letting
-    // the orderBy know whether to reverse sort or not
-    // when sort is equal to false, it sorts it descending and changes glyphicon
-    // when sort is true, it sorts it ascending, and changes glyphicon back
-    $scope.sortItems = function (x, bool) {
-        if (sort == false) {
+    // sorts items, where x is the object 'item'
+    $scope.sortItems = function (x) {
             $scope.myOrderBy = x;
-            $scope.reverse = !bool;
-            $scope.upArrowGlyphicon();
-        } else {
-            $scope.myOrderBy = x;
-            $scope.reverse = bool;
-            $scope.downArrowGlyphicon();
-        }
     };
 
     // initializes down arrow glyphicon for sorting
