@@ -1,0 +1,47 @@
+.small-width {
+    max-width: 20%;
+}
+
+.container {
+    background-color: #e7e7e7;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.list-group-item {
+    height: 50px;
+}
+
+.form-control-input {
+    width: 80%;
+    padding: 11px;
+    margin: auto;
+}
+
+.button {
+    background-color: #417daf;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+.btn-blue {
+    background-color: white;
+    color: black;
+    border: 2px solid #417DAF;
+}
+
+.btn-blue:hover {
+    background-color: #417daf;
+    color: white;
+}
+
+.error-text-red {
+    color: red;
+}
