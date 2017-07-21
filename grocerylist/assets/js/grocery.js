@@ -16,25 +16,30 @@ app.controller("groceryController", function ($scope) {
         $scope.errorText = "";
 
         if (!$scope.newItem) {
+            $scope.addClasses();
             $scope.errorText = "Enter an item";
             return;
         }
 
+        var flag = false;
+
         // set flag to false and don't change if item isn't in grocery list
         // set flag to true if item is already in grocery list
-        var flag = false;
         angular.forEach($scope.products, function(value, index) {
             if(value.item == $scope.newItem) {
+                $scope.addClasses();
                 $scope.errorText = "The item is already in your shopping list.";
                 flag = true;
             }
         });
 
         // if flag is false, meaning item wasn't in grocery list, create object
-        // and then push onto array
+        // and then push onto array, and reset input box text
         if (flag == false) {
             var obj = {item: $scope.newItem};
+            $scope.removeClasses();
             $scope.products.push(obj);
+            $scope.newItem = "";
         }
     }
 
@@ -42,4 +47,13 @@ app.controller("groceryController", function ($scope) {
         $scope.errorText = "";
         $scope.products.splice(item, 1);
     }
-})
+
+
+    $scope.addClasses = function () {
+        $scope.class = "alert alert-danger";
+    };
+
+    $scope.removeClasses = function () {
+        $scope.class = "";
+    };
+});
