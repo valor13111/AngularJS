@@ -58,16 +58,8 @@ app.controller("groceryController", function ($scope, $filter) {
         $scope.class = "";
     };
 
-    // gives a visual for sorting
-    $scope.downArrowGlyphicon = function () {
-        $scope.sorting = "glyphicon glyphicon-arrow-down";
-    };
-
     // sorts items, where x is the object 'item'
     $scope.sortItems = function (x) {
             $scope.myOrderBy = x;
     };
-
-    // initializes down arrow glyphicon for sorting
-    $scope.downArrowGlyphicon();
 });
